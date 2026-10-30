@@ -40,6 +40,7 @@ import net.minecraft.world.level.block.entity.ChestBlockEntity;
 import net.minecraft.world.level.block.entity.EnderChestBlockEntity;
 import net.minecraft.world.level.block.entity.ShulkerBoxBlockEntity;
 import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.chunk.LevelChunk;
 import net.minecraft.world.level.chunk.status.ChunkStatus;
 import net.minecraft.world.phys.Vec3;
 import org.joml.Matrix4f;
@@ -130,10 +131,10 @@ public class ChestHighlightClient implements ClientModInitializer {
 		for (int cx = center.x - radius; cx <= center.x + radius; cx++) {
 			for (int cz = center.z - radius; cz <= center.z + radius; cz++) {
 				ChunkAccess chunk = level.getChunk(cx, cz, ChunkStatus.FULL, false);
-				if (chunk == null) {
+				if (!(chunk instanceof LevelChunk levelChunk)) {
 					continue;
 				}
-				for (BlockEntity be : chunk.getBlockEntities().values()) {
+				for (BlockEntity be : levelChunk.getBlockEntities().values()) {
 					if (be.isRemoved()) {
 						continue;
 					}
