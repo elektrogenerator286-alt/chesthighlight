@@ -1,0 +1,20 @@
+{
+	"schemaVersion": 1,
+	"id": "chesthighlight",
+	"version": "${version}",
+	"name": "Chest Highlight",
+	"description": "Подсвечивает сундуки, бочки, эндер-сундуки и шалкеры сквозь стены. Клавиша P — вкл/выкл.",
+	"authors": ["you"],
+	"license": "MIT",
+	"environment": "client",
+	"entrypoints": {
+		"client": ["dev.example.chesthighlight.ChestHighlightClient"]
+	},
+	"mixins": ["chesthighlight.mixins.json"],
+	"depends": {
+		"fabricloader": ">=0.18.1",
+		"minecraft": "~1.21.11",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}
